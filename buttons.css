@@ -1,6 +1,5 @@
 /*----------BUTTON1 FLIP-------------------*/
-
-a.button1{
+    .button1 {
     display:inline-block;
     padding:0.5em 3em;
     border:0.16em solid #000000;
@@ -14,10 +13,10 @@ a.button1{
     text-align:center;
     transition: all 0.15s;
     }
-    a.button1:hover{
+    a.button1:hover {
     color:#b04040;
     border-color:#a33d3d;
     }
-    
+
 /*----------BUTTON2 FLIP-------------------*/
 
