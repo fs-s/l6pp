@@ -1,50 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Button 2</title>
+  <link rel="stylesheet" href="buttonsCopy.css">
+  <link rel="stylesheet" href="/bg.css">
+  <link rel="stylesheet" href="/buttons/buttons.css">
+  <link rel="stylesheet" href="/style.css">
 </head>
-
 <body>
-    <style>
-        .box {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #ffffff;
-            border-radius: 8px;
-            padding: 10px 14px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, .1);
-        }
+  <div class="buttonCopyContainer">
+    <div class="card centerr">
+        <a href="/" class="button2">BACK 🡼</a>
+      </div>
+    <div id='wrapper'>
+      <pre class='code code-html'><label>HTML</label><code>&lt;a href="/" class="button2">BUTTON 2&lt;/a&GT; </code></pre>
+      <pre class='code code-css'><label>CSS</label><code>.button2 {
+  display: inline-block;
+  padding: 12px 24px;
+  border: 1px solid #4f4f4f;
+  border-radius: 10px;
+  transition: all 0.2s ease-in;
+  position: relative;
+  overflow: hidden;
+  font-size: 20px;
+  color: black;
+  z-index: 1;
+}
 
-        .box input {
-            width: 300px;
-            height: 50px;
-            font-size: 20px;
-            font-weight: 500;
-            font-family: 'Fredoka';
-            padding-right: 12px;
-        }
+.button2:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) scaleY(1) scaleX(1.25);
+  top: 100%;
+  width: 140%;
+  height: 180%;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 50%;
+  display: block;
+  transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+  z-index: -1;
+}
 
-        .box button {
-            cursor: pointer;
-            width: 40px;
-            height: 40px;
-            font-size: 24px;
-            border-radius: 3px;
-            color: #ffffff;
-            background: #5463ff;
-        }
-    </style>
+.button2:after {
+  content: "";
+  position: absolute;
+  left: 55%;
+  transform: translateX(-50%) scaleY(1) scaleX(1.45);
+  top: 180%;
+  width: 160%;
+  height: 190%;
+  background-color: #39bda7;
+  border-radius: 50%;
+  display: block;
+  transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+  z-index: -1;
+}
 
-    <div class="box">
-        <input value="Type something..." id="input">
-        <button class="bx bx-copy" id="copy"></button>
-    </div>
-    <script src="copyBT2.js"></script>
+.button2:hover {
+  color: #ffffff;
+  border: 1px solid #39bda7;
+}
+
+.button2:hover:before {
+  top: -35%;
+  background-color: #39bda7;
+  transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+}
+
+.button2:hover:after {
+  top: -45%;
+  background-color: #39bda7;
+  transform: translateX(-50%) scaleY(0.3) scaleX(0.8);
+}
+  </code></pre>
+<div>
+  <script>$('i[rel="pre"]').replaceWith(function() {
+    return $('<pre><code>' + $(this).html() + '</code></pre>');
+});
+var pres = document.querySelectorAll('pre,kbd,blockquote');
+for (var i = 0; i < pres.length; i++) {
+  pres[i].addEventListener("dblclick", function () {
+    var selection = getSelection();
+    var range = document.createRange();
+    range.selectNodeContents(this);
+    selection.removeAllRanges();
+    selection.addRange(range);
+  }, false);
+}</script>
 </body>
 </html>
