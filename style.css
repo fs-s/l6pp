@@ -1,20 +1,217 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code&display=swap");
 body {
-    background-color: rgb(46, 46, 46);
+  background-color: #222;
+  overflow-y: hidden;
+  font-family: 'Fira Code', monospace;
+  color: white;
 }
+
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 .container {
-    margin-inline: 4rem;
-    display: flex;
-    gap: 3rem;
-    flex-wrap: wrap;
-    justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background: #333;
 }
-.card {
-    width: 300px;
-    height: 260px;
-    background-color: #333;
-    border-radius: 20px;
-    box-shadow: rgba(153, 153, 153, 0.8) 5px 5px, rgba(124, 124, 124, 0.4) 10px 10px, rgba(82, 82, 82, 0.2) 15px 15px, rgba(28, 28, 28, 0.1) 20px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-   }
+
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 80px;
+  color: #fff;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 800px) {
+  h1 {
+    font-size: 30px;
+  }
+}
+
+.animation {
+  position: relative;
+  width: 100%;
+  margin-top: 4rem;
+}
+
+.animation div {
+  overflow: hidden;
+  width: 50%;
+  height: 100%;
+  -webkit-transform: skewX(-20deg);
+          transform: skewX(-20deg);
+}
+
+.animation div::before {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 4px;
+  background: #fff;
+}
+
+.animation span {
+  padding: 0 10px;
+}
+
+.animation-left::before {
+  left: 0;
+  -webkit-animation: widthLineLeft 1.2s 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.1) forwards;
+          animation: widthLineLeft 1.2s 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.1) forwards;
+}
+
+.animation-left span {
+  display: block;
+  -webkit-animation: slideLeft 1.2s 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.1) forwards;
+          animation: slideLeft 1.2s 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.1) forwards;
+  -webkit-transform: translateX(200px) skewX(20deg);
+          transform: translateX(200px) skewX(20deg);
+}
+
+.animation-right {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.animation-right:before {
+  bottom: 0;
+  right: 0;
+  -webkit-animation: widthLineRight 1.2s 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.1) forwards;
+          animation: widthLineRight 1.2s 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.1) forwards;
+}
+
+.animation-right span {
+  position: absolute;
+  width: 100%;
+  left: -100%;
+  -webkit-transform: translateX(-200px) skewX(20deg);
+          transform: translateX(-200px) skewX(20deg);
+  -webkit-animation: slideRight 1.2s 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.1) forwards;
+          animation: slideRight 1.2s 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.1) forwards;
+}
+
+@-webkit-keyframes slideLeft {
+  from {
+    -webkit-transform: translateX(200px) skewX(20deg);
+            transform: translateX(200px) skewX(20deg);
+  }
+  to {
+    -webkit-transform: translateX(0%) skewX(20deg);
+            transform: translateX(0%) skewX(20deg);
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    -webkit-transform: translateX(200px) skewX(20deg);
+            transform: translateX(200px) skewX(20deg);
+  }
+  to {
+    -webkit-transform: translateX(0%) skewX(20deg);
+            transform: translateX(0%) skewX(20deg);
+  }
+}
+
+@-webkit-keyframes slideRight {
+  from {
+    -webkit-transform: translateX(-200px) skewX(20deg);
+            transform: translateX(-200px) skewX(20deg);
+  }
+  to {
+    -webkit-transform: translateX(0%) skewX(20deg);
+            transform: translateX(0%) skewX(20deg);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    -webkit-transform: translateX(-200px) skewX(20deg);
+            transform: translateX(-200px) skewX(20deg);
+  }
+  to {
+    -webkit-transform: translateX(0%) skewX(20deg);
+            transform: translateX(0%) skewX(20deg);
+  }
+}
+
+@-webkit-keyframes widthLineLeft {
+  0% {
+    width: 0%;
+    left: 0%;
+  }
+  50% {
+    width: 100%;
+    left: 0%;
+  }
+  100% {
+    width: 0%;
+    left: 100%;
+  }
+}
+
+@keyframes widthLineLeft {
+  0% {
+    width: 0%;
+    left: 0%;
+  }
+  50% {
+    width: 100%;
+    left: 0%;
+  }
+  100% {
+    width: 0%;
+    left: 100%;
+  }
+}
+
+@-webkit-keyframes widthLineRight {
+  0% {
+    width: 0%;
+    right: 0%;
+  }
+  50% {
+    width: 100%;
+    right: 0%;
+  }
+  100% {
+    width: 0%;
+    right: 100%;
+  }
+}
+
+@keyframes widthLineRight {
+  0% {
+    width: 0%;
+    right: 0%;
+  }
+  50% {
+    width: 100%;
+    right: 0%;
+  }
+  100% {
+    width: 0%;
+    right: 100%;
+  }
+}
+
+.box {
+  border: solid red 1px;
+  border-radius: 4px;
+  padding: 4rem 6rem;
+  width: 10rem;
+}
+/*# sourceMappingURL=style.css.map */

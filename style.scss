@@ -1,0 +1,154 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code&display=swap");
+body {
+  background-color: #222;
+  overflow-y: hidden;
+  font-family: 'Fira Code',
+ monospace;
+  color: white;
+}
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background: #333;
+}
+
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 80px;
+  color: #fff;
+  margin: 0 auto;
+
+  @media screen and (max-width: 800px) {
+    font-size: 30px;
+  }
+}
+
+.animation {
+  position: relative;
+  width: 100%;
+  margin-top: 4rem;
+
+  div {
+    overflow: hidden;
+    width: 50%;
+    height: 100%;
+    transform: skewX(-20deg);
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 4px;
+      background: #fff;
+    }
+  }
+
+  span {
+    padding: 0 10px;
+  }
+}
+
+.animation-left {
+
+  &::before {
+    left: 0;
+    animation: widthLineLeft 1.2s 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.10) forwards;
+  }
+
+  span {
+    display: block;
+    animation: slideLeft 1.2s 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.10) forwards;
+    transform: translateX(200px) skewX(20deg);
+  }
+}
+
+.animation-right {
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  &:before {
+    bottom: 0;
+    right: 0;
+    animation: widthLineRight 1.2s 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.10) forwards;
+  }
+
+  span {
+    position: absolute;
+    width: 100%;
+    left: -100%;
+    transform: translateX(-200px) skewX(20deg);
+    animation: slideRight 1.2s 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.10) forwards;
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    transform: translateX(200px) skewX(20deg);
+  }
+
+  to {
+    transform: translateX(0%) skewX(20deg);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    transform: translateX(-200px) skewX(20deg);
+  }
+
+  to {
+    transform: translateX(0%) skewX(20deg);
+  }
+}
+
+@keyframes widthLineLeft {
+  0% {
+    width: 0%;
+    left: 0%;
+  }
+
+  50% {
+    width: 100%;
+    left: 0%;
+  }
+
+  100% {
+    width: 0%;
+    left: 100%;
+  }
+}
+
+@keyframes widthLineRight {
+  0% {
+    width: 0%;
+    right: 0%;
+  }
+
+  50% {
+    width: 100%;
+    right: 0%;
+  }
+
+  100% {
+    width: 0%;
+    right: 100%;
+  }
+}
+
+.box {
+  border: solid red 1px;
+  border-radius: 4px;
+  padding: 4rem 6rem;
+  width: 10rem;
+}
