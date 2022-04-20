@@ -45,6 +45,7 @@ h1 {
   position: relative;
   width: 100%;
   margin-top: 4rem;
+  margin-bottom: 4rem;
 }
 
 .animation div {
@@ -209,9 +210,31 @@ h1 {
 }
 
 .box {
-  border: solid red 1px;
-  border-radius: 4px;
+display: grid;
+grid-template-columns:repeat(5,1fr);
+}
+.lines {
+  border-top: solid white;
+  border-bottom: solid white;
   padding: 4rem 6rem;
   width: 10rem;
 }
 /*# sourceMappingURL=style.css.map */
+
+
+.parent {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  text-align: center;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+}
+
+.parent div {
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  padding: 4rem;
+}
